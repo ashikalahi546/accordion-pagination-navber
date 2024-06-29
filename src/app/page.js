@@ -7,8 +7,9 @@ export default function Home() {
   return (
 <main>
 {/* <Accordion/> */}
-{/* <AccordionTwo/> */}
-{/* <Navber/> */}
+<Navber/>
+<AccordionTwo/>
+
 </main>
   );
 }

@@ -1,28 +1,42 @@
 export const menuItems = [
-    {
-      label: 'Home',
-      path: '/',
-    },
-    {
-      label: 'About',
-      path: '/about',
-    },
-    {
-      label: 'Services',
-      path: '/services',
-      submenu: [
-        {
-          label: 'Service 1',
-          path: '/services/service1',
-        },
-        {
-          label: 'Service 2',
-          path: '/services/service2',
-        },
-      ],
-    },
-    {
-      label: 'Contact',
-      path: '/contact',
-    },
-  ];
+  {
+    title: "Home",
+    submenu: null,
+  },
+  {
+    title: "About",
+    submenu: [
+      { title: "Our Team", submenu: null },
+      { title: "Our Story", submenu: null },
+    ],
+  },
+  {
+    title: "Services",
+    submenu: [
+      { title: "Web Development", submenu: null },
+      { title: "SEO", submenu: null },
+    ],
+  },
+  {
+    title: "Contact",
+    submenu: null,
+  },
+  {
+    title: "Web-Developement",
+    submenu: [
+      { title: "Frontend" },
+      
+      {
+        title: "Backend",
+        submenu: [
+          {
+            title: "PHP",
+          },
+          {
+            title: "Node Js",
+          },
+        ],
+      },
+    ],
+  },
+];

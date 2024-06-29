@@ -70,11 +70,14 @@ export const AccordionTwo = () => {
                 >
                   <span>{item?.title}</span>
                   <span className="bg-blue-500 size-8 rounded-full text-white flex items-center justify-center">
-                    {activeIndex === i ? (
+                    {/* {activeIndex === i ? (
                       <GoArrowUp/>
                     ) : (
                       <GoArrowDown/>
-                    )}
+                    )} */}
+                    {
+                      <span className={`${activeIndex==i ? 'rotate-180 transition-all duration-300' : 'rotate-0 transition-all duration-300'}`}><GoArrowDown/></span>
+                    }
                   </span>
                 </button>
                 <div className={`overflow-hidden transition-all ease-in-out duration-300 ${activeIndex === i ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}>
