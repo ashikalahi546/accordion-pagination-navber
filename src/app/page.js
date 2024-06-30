@@ -6,9 +6,10 @@ import Navber from './../components/Navber';
 export default function Home() {
   return (
 <main>
+
+{/* <Navber/> */}
 {/* <Accordion/> */}
-<Navber/>
-<AccordionTwo/>
+{/* <AccordionTwo/> */}
 
 </main>
   );
