@@ -1,27 +1,28 @@
-import React from 'react';
+
 import { HiOutlineChevronDown } from 'react-icons/hi';
 
 const menuData = [
   {
-    title: 'Menu 1',
+    title: 'Home',
     submenus: [
-      { title: 'Submenu 1-1' },
-      { title: 'Submenu 1-2' },
+      { title: 'Submenu1' },
+      { title: 'Submenu2' },
     ],
   },
   {
-    title: 'Menu 2',
+    title: 'About',
     submenus: [
-      { title: 'Submenu 2-1' },
-      { title: 'Submenu 2-2' },
+      { title: 'Submenu1' },
+      { title: 'Submenu2' },
     ],
   },
 ];
 
-const Dropdown = ({ items }) => {
+const Dropdown = () => {
+  
   return (
-    <ul className="list-none p-0 m-0 w-6/12 mx-auto flex">
-      {items.map((item, index) => (
+    <ul className=" w-6/12 mx-auto flex">
+      {menuData.map((item, index) => (
         <li key={index} className="relative group mb-2">
           <div className="p-2 border rounded bg-gray-200 hover:bg-gray-300 cursor-pointer flex justify-between items-center">
             <span>{item.title}</span>
@@ -30,6 +31,7 @@ const Dropdown = ({ items }) => {
                 className={`transition-transform duration-300 ease-in-out ${item.submenus ? 'rotate-0 group-hover:rotate-180' : ''}`}
               >
                 <HiOutlineChevronDown />
+                
               </span>
             )}
           </div>
@@ -51,12 +53,6 @@ const Dropdown = ({ items }) => {
   );
 };
 
-const App = () => {
-  return (
-    <div className="p-10">
-      <Dropdown items={menuData} />
-    </div>
-  );
-};
 
-export default App;
+
+export default Dropdown;
