@@ -7,6 +7,10 @@ import { useState } from "react";
 const NexzanNavber = () => {
   const [hoverItemIndex, setItemIndex] = useState(null);
   const [hoverSubmenuIndex, sethoverSubmenuIndex] = useState(null);
+
+  const [tick, setTick] = useState(false);
+
+  
   return (
     <div className="bg-blue-800">
       <div className="w-[1100px] mx-auto flex items-center justify-between  h-[65px]">
@@ -32,15 +36,27 @@ const NexzanNavber = () => {
                 )}
               </div>
               {hoverItemIndex === index && item.submenus && (
-                <ul className="absolute right-0  top-16 hidden group-hover:flex flex-col duration-300   ">
-                  <div className="size-5 bg-extraDarkBlue  rotate-45 absolute right-5 -top-2 "></div>
+                <ul className="absolute right-0  top-16  duration-200   ">
+                  <div className={`size-5  rotate-45 absolute right-5 -top-2  ${tick ? "bg-[#7156F5]" : "bg-extraDarkBlue"}`}></div>
                   {item.submenus.map((submenu, subIndex) => (
                     <li
-                      onMouseEnter={() => sethoverSubmenuIndex(subIndex)}
-                      onMouseLeave={() => sethoverSubmenuIndex(null)}
-                      key={subIndex}
+                      onMouseEnter={() =>{
+                        sethoverSubmenuIndex(subIndex)
+                        if(subIndex === 0){
+                          setTick(true);
+                        }
+                      }}
+                      onMouseLeave={() => {
+                        sethoverSubmenuIndex(null)
+                        if(subIndex === 0){
+                          setTick(false);
+                        }
+                      }
+                      }
+                      key={subIndex} 
                       className="bg-extraDarkBlue relative bg-fuchsiaBlue text-gray-200 min-w-full h-[43px] px-5 py-2 border-b border-background  text-sm w-[200px]"
                     >
+                   
                       <span className=""> {submenu.title}</span>
 
                       {hoverSubmenuIndex === subIndex &&

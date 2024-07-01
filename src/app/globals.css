@@ -7,8 +7,7 @@
     background-color: rgb(20 24 87);
 }
 .bg-fuchsiaBlue:hover {
-    --tw-bg-opacity: 1;
-    background-color: rgb(113 86 245/var(--tw-bg-opacity));
+    background-color: rgb(113 86 245);
 }
 
 .border-background{
