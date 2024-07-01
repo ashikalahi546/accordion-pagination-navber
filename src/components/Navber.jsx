@@ -1,62 +1,72 @@
-import React from 'react';
-import { HiOutlineChevronDown } from 'react-icons/hi';
 
-const menuData = [
-  {
-    title: 'Menu 1',
-    submenus: [
-      { title: 'Submenu 1-1' },
-      { title: 'Submenu 1-2' },
-    ],
-  },
-  {
-    title: 'Menu 2',
-    submenus: [
-      { title: 'Submenu 2-1' },
-      { title: 'Submenu 2-2' },
-    ],
-  },
-];
+"use client"
+import Image from "next/image";
+import { nexzanMenuData } from "./NexzanMenuData";
+import { FaAngleDown } from "react-icons/fa";
+import { useState } from "react";
 
-const Dropdown = ({ items }) => {
+const NexzanNavber = () => {
+  const [hoveredItemIndex, setHoveredItemIndex] = useState(null);
+  const [hoveredSubmenuIndex, setHoveredSubmenuIndex] = useState(null);
+
   return (
-    <ul className="list-none p-0 m-0 w-6/12 mx-auto flex">
-      {items.map((item, index) => (
-        <li key={index} className="relative group mb-2">
-          <div className="p-2 border rounded bg-gray-200 hover:bg-gray-300 cursor-pointer flex justify-between items-center">
-            <span>{item.title}</span>
-            {item.submenus && (
-              <span
-                className={`transition-transform duration-300 ease-in-out ${item.submenus ? 'rotate-0 group-hover:rotate-180' : ''}`}
-              >
-                <HiOutlineChevronDown />
-              </span>
-            )}
-          </div>
-          {item.submenus && (
-            <ul className="absolute left-0 top-full  hidden group-hover:flex flex-col transition-opacity duration-300 delay-150 ease-in-out opacity-0 group-hover:opacity-100 bg-white border rounded shadow-lg">
-              {item.submenus.map((submenu, subIndex) => (
-                <li
-                  key={subIndex}
-                  className="p-2 border-b last:border-0 bg-gray-100 hover:bg-gray-200"
-                >
-                  {submenu.title}
-                </li>
-              ))}
-            </ul>
-          )}
-        </li>
-      ))}
-    </ul>
-  );
-};
-
-const App = () => {
-  return (
-    <div className="p-10">
-      <Dropdown items={menuData} />
+    <div className="bg-blue-800">
+      <div className="w-[1100px] mx-auto flex items-center justify-between h-[65px]">
+        <Image src="/image/nexzan-logo.webp" width={168} height={45} alt="" />
+        <ul className="flex items-center gap-10 cursor-pointer">
+          {nexzanMenuData.map((item, index) => (
+            <li
+              key={index}
+              className="group relative"
+              onMouseEnter={() => setHoveredItemIndex(index)}
+              onMouseLeave={() => setHoveredItemIndex(null)}
+            >
+              <div className="text-white font-medium flex items-center gap-1 h-[65px]">
+                <span>{item.title}</span>
+                {item.submenus && (
+                  <span
+                    className={`transition-transform duration-300 ease-in-out ${
+                      item.submenus ? "rotate-0 group-hover:rotate-180" : ""
+                    }`}
+                  >
+                    <FaAngleDown className="text-lg font-medium" />
+                  </span>
+                )}
+              </div>
+              {hoveredItemIndex === index && item.submenus && (
+                <ul className="absolute top-16 flex flex-col duration-300 delay-200">
+                  {item.submenus.map((submenu, subIndex) => (
+                    <li
+                      key={subIndex}
+                      className="relative bg-extraDarkBlue text-gray-200 min-w-full h-[43px] px-5 py-2 border-b border-background text-sm w-[200px] group"
+                      onMouseEnter={() => setHoveredSubmenuIndex(subIndex)}
+                      onMouseLeave={() => setHoveredSubmenuIndex(null)}
+                    >
+                      <span>{submenu.title}</span>
+                      {hoveredSubmenuIndex === subIndex &&
+                        submenu.submenustwo && (
+                          <ul className="absolute left-full top-0 flex flex-col duration-300 delay-200">
+                            {submenu.submenustwo.map((subSubmenu, subSubIndex) => (
+                              <li
+                                key={subSubIndex}
+                                className="bg-extraDarkBlue bg-fuchsiaBlue text-gray-200 min-w-full h-[43px] px-5 py-2 border-b border-background text-sm w-[200px]"
+                              >
+                                {subSubmenu.title}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
 
-export default App;
+export default NexzanNavber;
+
