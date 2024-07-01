@@ -33,19 +33,15 @@ const NexzanNavber = () => {
               </div>
               {hoverItemIndex === index && item.submenus && (
                 <ul className="absolute right-0  top-16 hidden group-hover:flex flex-col duration-300   ">
-                <div className="size-5 bg-extraDarkBlue  rotate-45 absolute right-5 -top-2 ">
-
-</div>
+                  <div className="size-5 bg-extraDarkBlue  rotate-45 absolute right-5 -top-2 "></div>
                   {item.submenus.map((submenu, subIndex) => (
                     <li
                       onMouseEnter={() => sethoverSubmenuIndex(subIndex)}
                       onMouseLeave={() => sethoverSubmenuIndex(null)}
                       key={subIndex}
                       className="bg-extraDarkBlue relative bg-fuchsiaBlue text-gray-200 min-w-full h-[43px] px-5 py-2 border-b border-background  text-sm w-[200px]"
-                    >   
-    
+                    >
                       <span className=""> {submenu.title}</span>
-                  
 
                       {hoverSubmenuIndex === subIndex &&
                         submenu?.submenustwo && (
