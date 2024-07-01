@@ -10,7 +10,7 @@ const NexzanNavber = () => {
 
   const [tick, setTick] = useState(false);
 
-  
+  console.log(tick);
   return (
     <div className="bg-blue-800">
       <div className="w-[1100px] mx-auto flex items-center justify-between  h-[65px]">
@@ -35,28 +35,31 @@ const NexzanNavber = () => {
                   </span>
                 )}
               </div>
+
               {hoverItemIndex === index && item.submenus && (
-                <ul className="absolute right-0  top-16  duration-200   ">
-                  <div className={`size-5  rotate-45 absolute right-5 -top-2  ${tick ? "bg-[#7156F5]" : "bg-extraDarkBlue"}`}></div>
+                <ul className="absolute right-0  top-16 hidden group-hover:flex flex-col duration-200   ">
+                  <div
+                    className={`size-5  rotate-45 absolute right-5 -top-2  ${
+                      tick ? "bg-[#7156F5]" : "bg-extraDarkBlue"
+                    }`}
+                  ></div>
                   {item.submenus.map((submenu, subIndex) => (
                     <li
-                      onMouseEnter={() =>{
-                        sethoverSubmenuIndex(subIndex)
-                        if(subIndex === 0){
+                      onMouseEnter={() => {
+                        sethoverSubmenuIndex(subIndex);
+                        if (subIndex === 0) {
                           setTick(true);
                         }
                       }}
                       onMouseLeave={() => {
-                        sethoverSubmenuIndex(null)
-                        if(subIndex === 0){
+                        sethoverSubmenuIndex(null);
+                        if (subIndex === 0) {
                           setTick(false);
                         }
-                      }
-                      }
-                      key={subIndex} 
+                      }}
+                      key={subIndex}
                       className="bg-extraDarkBlue relative bg-fuchsiaBlue text-gray-200 min-w-full h-[43px] px-5 py-2 border-b border-background  text-sm w-[200px]"
                     >
-                   
                       <span className=""> {submenu.title}</span>
 
                       {hoverSubmenuIndex === subIndex &&
