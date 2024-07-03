@@ -24,7 +24,7 @@ export const AccordionTwo = () => {
                   <span>{item?.title}</span>
                   <span className="bg-blue-500 size-8 rounded-full text-white flex items-center justify-center">
                     {
-                      <span className={`${activeIndex==i ? 'rotate-180 transition-all duration-300' : 'rotate-0 transition-all duration-300'}`}><GoArrowDown/></span>
+                      <span className={`${activeIndex===i ? 'rotate-180 transition-all duration-300' : 'rotate-0 transition-all duration-300'}`}><GoArrowDown/></span>
                     }
                   </span>
                 </button>

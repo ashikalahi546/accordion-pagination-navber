@@ -1,5 +1,5 @@
 "use client";
-import { FaChevronDown } from "react-icons/fa6";
+import { FaArrowRightLong, FaChevronDown } from "react-icons/fa6";
 import { selectOptionData } from "./SelectOptionData";
 import { useState } from "react";
 
@@ -32,10 +32,17 @@ const SelectOption = () => {
               onClick={() => setSelected(country.name)}
               className="text-center hover:bg-blue-500 hover:text-white  py-1.5 "
             >
-              {country.name}  
+              {country.name}
             </li>
           ))}
         </ul>
+      </div>
+
+      <div className="w-36 mx-auto group relative">
+        <button className="text-white bg-orange-500 w-32 h-10 px-3 rounded text-sm flex absolute justify-center items-center gap-2">
+          Read More
+          <FaArrowRightLong className="transition-transform duration-200 group-hover:translate-x-1" />
+        </button>
       </div>
     </div>
   );
